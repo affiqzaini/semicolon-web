@@ -6,6 +6,8 @@
 # install dependencies
 $ npm install
 
+# create .env file
+
 # check remote url
 $ git remote -v
 
