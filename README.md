@@ -8,14 +8,7 @@ $ npm install
 
 # create .env file
 
-# check remote url
-$ git remote -v
-
-# remove git remote origin
-$ git remove rm origin
-
-# add new remote url
-$ git remote add origin https://github.com/user/repo.git
+# create project repo and initialize git
 
 # build for production and launch server
 $ npm run build
