@@ -20,6 +20,7 @@ import {
 import { NuxtConfig } from "@nuxt/types";
 
 const config: NuxtConfig = {
+  ssr: false,
   axios,
   build,
   buildModules,

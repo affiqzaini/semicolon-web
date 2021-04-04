@@ -1,18 +1,20 @@
-import { NuxtConfig } from '@nuxt/types'
+import { NuxtConfig } from "@nuxt/types";
 
-require('dotenv').config()
+require("dotenv").config();
 
-export const head: NuxtConfig['head'] = {
-  titleTemplate: '%s - ' + process.env.APP_NAME,
+export const head: NuxtConfig["head"] = {
+  titleTemplate: "%s - " + process.env.APP_NAME,
   title: process.env.APP_NAME,
   meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
     {
-      hid: 'description',
-      name: 'description',
-      content: process.env.APP_META_DESCRIPTION || ''
+      hid: "description",
+      name: "description",
+      content: process.env.APP_META_DESCRIPTION || ""
     }
   ],
-  link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-}
+  link: [
+    { rel: "icon", type: "image/x-icon", href: "/logo/logo-transparent.png" }
+  ]
+};
