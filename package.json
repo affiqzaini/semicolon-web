@@ -1,7 +1,10 @@
 {
-  "name": "nuxt-ts-vuetify",
+  "name": "semicolon-web",
   "version": "1.0.0",
   "private": true,
+  "author": {
+    "name": "Affiq Zaini"
+  },
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
