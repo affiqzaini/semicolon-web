@@ -10,14 +10,7 @@
         {{ $t("label.ourServices") }}
       </p>
       <template v-for="(item, index) in services">
-        <v-card
-          tile
-          flat
-          :key="index"
-          width="100%"
-          class="mb-4"
-          color="#e2ebf0"
-        >
+        <v-card tile flat :key="index" width="100%" class="mb-4">
           <v-card-title class="mb-0 text-h6 text-sm-h5">{{
             item.title
           }}</v-card-title>

@@ -18,8 +18,16 @@
         {{ $t("message.weOfferVariousItSolutions") }}
       </p>
     </div>
-    <v-btn class="mr-auto" rounded depressed color="primary">
+    <v-btn
+      @click.prevent="scrollDown"
+      class="mr-auto"
+      rounded
+      depressed
+      color="primary"
+      append
+    >
       {{ $t("label.moreAboutUs") }}
+      <v-icon class="ml-2">mdi-chevron-down</v-icon>
     </v-btn>
   </div>
 </template>
@@ -28,7 +36,12 @@
 import { Vue, Component } from "nuxt-property-decorator";
 
 @Component
-export default class HeroMessage extends Vue {}
+export default class HeroMessage extends Vue {
+  scrollDown() {
+    const elem = document.getElementById("about-us") as HTMLElement;
+    this.$vuetify.goTo(elem);
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +70,7 @@ export default class HeroMessage extends Vue {}
 
   @media #{map-get($display-breakpoints, 'xs-only')} {
     max-width: 300px;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 30px !important;
     background-image: none !important;
   }

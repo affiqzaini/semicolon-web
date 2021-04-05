@@ -9,6 +9,7 @@
           dark
           :label="$t('label.name')"
           class="mb-2"
+          v-model="formModel.from_name"
         />
         <v-text-field
           hide-details
@@ -16,6 +17,7 @@
           type="email"
           :label="$t('label.email')"
           class="mb-2"
+          v-model="formModel.reply_to"
         />
         <v-text-field
           class="mb-4"
@@ -23,6 +25,7 @@
           hide-details
           dark
           :label="$t('label.phoneOptional')"
+          v-model="formModel.phone_no"
         />
         <v-textarea
           class="mb-2"
@@ -30,10 +33,18 @@
           dark
           outlined
           :placeholder="$t('message.tellUsWhatYouHaveInMind')"
+          v-model="formModel.message"
         />
-        <v-btn depressed color="primary" width="120" rounded>{{
-          $t("label.send")
-        }}</v-btn>
+        <v-btn
+          depressed
+          color="primary"
+          width="120"
+          rounded
+          :loading="loading"
+          @click.prevent="sendEmail"
+        >
+          {{ $t("label.send") }}
+        </v-btn>
       </v-col>
       <v-col cols="12" sm="6" md="4">
         <v-img
@@ -51,7 +62,7 @@
         >
           <div class="d-inline-flex align-center mb-2">
             <v-icon color="#def6fe" class="mr-2">mdi-email</v-icon>
-            <span class="text-body-2">hello@semicolon-my.com</span>
+            <span class="text-body-2">hello@semicolon.com.my</span>
           </div>
           <div class="d-inline-flex align-center">
             <v-icon color="#def6fe" class="mr-2">mdi-phone</v-icon>
@@ -66,9 +77,66 @@
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
+import emailjs, { init } from "emailjs-com";
 
 @Component
-export default class ContactFooter extends Vue {}
+export default class ContactFooter extends Vue {
+  loading: Boolean = false;
+  formModel: any = {
+    to_name: "Semicolon Malaysia",
+    from_name: null,
+    reply_to: null,
+    phone_no: null,
+    message: null
+  };
+
+  client: any = null;
+
+  get validForm() {
+    if (
+      this.formModel.from_name == null ||
+      this.formModel.reply_to == null ||
+      this.formModel.message == null
+    )
+      return false;
+    else return true;
+  }
+
+  mounted() {
+    this.initializeEmailjs();
+  }
+
+  initializeEmailjs() {
+    this.client = init("user_twvKyIAiA893pF5T16Lt8");
+  }
+
+  async sendEmail() {
+    const serviceId = this.$config.emailjs_service_id;
+    const templateId = this.$config.emailjs_template_id;
+
+    if (!this.validForm)
+      return this.$toasted.error(this.$t("message.plsFillInTheForm") as string);
+
+    try {
+      this.loading = true;
+
+      await emailjs.send(serviceId, templateId, this.formModel);
+      this.$toasted.success(
+        this.$t("message.weHaveReceivedYourEmail") as string
+      );
+      this.formModel = {
+        from_name: "",
+        reply_to: "",
+        phone_no: "",
+        message: ""
+      };
+    } catch (error) {
+      this.$toasted.error(this.$t("message.plsTryAgainLater") as string);
+    } finally {
+      this.loading = false;
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

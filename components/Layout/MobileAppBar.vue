@@ -1,15 +1,25 @@
 <template>
-  <div class="components__mobileAppBar">
-    <v-app-bar dense flat color="primary">
-      <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
+  <div class="components__mobileAppBar mx-auto overflow-hidden">
+    <v-app-bar dense flat color="white" fixed>
+      <img src="/logo/logo-web.png" class="logo" />
+      <v-spacer></v-spacer>
+      <v-app-bar-nav-icon
+        class="primary--text"
+        @click.stop="drawer = !drawer"
+      />
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" color="#def6fe" absolute temporary>
-      <v-list nav dense rounded>
-        <img src="/logo/logo-web.png" class="logo" />
-        <v-list-item-group active-class="primary--text text--accent-4">
-          <v-list-item v-for="(item, index) in navMenu" :key="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+    <v-navigation-drawer app v-model="drawer" temporary>
+      <v-list nav dense>
+        <v-list-item-group>
+          <v-list-item
+            @click.prevent="goToElement(item.to)"
+            v-for="(item, index) in navMenu"
+            :key="index"
+          >
+            <v-list-item-title>
+              {{ item.title }}
+            </v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -26,11 +36,38 @@ export default class MobileAppBar extends Vue {
 
   get navMenu() {
     return [
-      { name: "home", title: this.$t("label.home") },
-      { name: "about-us", title: this.$t("label.aboutUs") },
-      { name: "our-services", title: this.$t("label.ourServices") },
-      { name: "contact-us", title: this.$t("label.contactUs") }
+      {
+        name: "home",
+        title: this.$t("label.home"),
+        to: "hero-container"
+      },
+      {
+        name: "about-us",
+        title: this.$t("label.aboutUs"),
+        to: "about-us"
+      },
+      {
+        name: "our-process",
+        title: this.$t("label.ourProcess"),
+        to: "dev-process"
+      },
+      {
+        name: "our-services",
+        title: this.$t("label.ourServices"),
+        to: "our-services"
+      },
+      {
+        name: "contact-us",
+        title: this.$t("label.contactUs"),
+        to: "contact-footer"
+      }
     ];
+  }
+
+  goToElement(elem: string) {
+    this.drawer = false;
+    const el = document.getElementById(elem) as HTMLElement;
+    this.$vuetify.goTo(el);
   }
 }
 </script>
@@ -38,10 +75,9 @@ export default class MobileAppBar extends Vue {
 <style lang="scss" scoped>
 .components__mobileAppBar {
   .logo {
-    width: 60%;
+    width: 100px;
     height: auto;
     object-fit: contain;
-    padding-left: 4px;
   }
 }
 </style>

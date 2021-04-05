@@ -49,8 +49,11 @@ export default {
     webDevelopment: "Web Development"
   },
   message: {
+    plsFillInTheForm: "Please fill in the contact form.",
+    plsTryAgainLater: "It seems like there's an issue. Please try again later.",
     tellUsWhatYouHaveInMind:
       "Tell us what you have in mind, or you can just say hello...",
+    weHaveReceivedYourEmail: "We have received your message. Thank you!",
     weOfferVariousItSolutions:
       "We provide various IT solutions that will cater to your smallest needs!",
     yourBusinessToTheWorld: "your business to the World"
