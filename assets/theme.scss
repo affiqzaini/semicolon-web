@@ -1,5 +1,9 @@
 @import "./font.scss";
 
+body {
+  scroll-behavior: smooth;
+}
+
 .components__toasted {
   font-family: "Poppins", sans-serif;
 }

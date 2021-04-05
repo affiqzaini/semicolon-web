@@ -5,7 +5,9 @@
     color="white"
     fixed
   >
-    <div class="d-inline-flex align-center justify-space-between full-width">
+    <div
+      class="app-bar mx-auto d-inline-flex align-center justify-space-between full-width"
+    >
       <div
         class="appbar-logo cursor-pointer"
         @click.prevent="goToElement('hero-container')"
@@ -30,7 +32,6 @@
 
       <div class="mt-2">
         <v-btn
-          outlined
           depressed
           small
           color="primary"
@@ -83,6 +84,9 @@ export default class DesktopAppBar extends Vue {
 <style lang="scss" scoped>
 .components__desktopAppBar {
   height: 100px !important;
-  max-width: 1900px;
+
+  .app-bar {
+    max-width: 1900px;
+  }
 }
 </style>
