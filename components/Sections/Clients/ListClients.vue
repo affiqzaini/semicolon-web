@@ -8,7 +8,7 @@
         <template v-for="(item, index) in clients">
           <v-col cols="4" :key="index">
             <v-img
-              class="cursor-pointer"
+              class="client-logo mx-3 cursor-pointer"
               @click.prevent="goToClient(item.link)"
               :src="item.logo"
               height="150"
@@ -32,18 +32,18 @@ export default class ListClients extends Vue {
       {
         name: "Studio Kittuco",
         logo: "/clients/kittuco.svg",
-        link: "http://www.kittuco.com"
+        link: "http://www.kittuco.com",
       },
       {
         name: "One Plus Two Thrift Store",
         logo: "/clients/opt.png",
-        link: "http://www.oneplustwo.my"
+        link: "http://www.oneplustwo.my",
       },
       {
         name: "DD Plastic Sdn Bhd",
         logo: "/clients/dd-plastic.png",
-        link: "https://ddplastic.com.my"
-      }
+        link: "https://ddplastic.com.my",
+      },
     ];
   }
 
@@ -61,6 +61,11 @@ export default class ListClients extends Vue {
     margin: auto;
     display: flex;
     flex-direction: column;
+  }
+  .client-logo {
+    &:hover {
+      transform: scale(1.2, 1.2);
+    }
   }
 }
 </style>

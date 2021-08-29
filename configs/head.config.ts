@@ -3,8 +3,11 @@ import { NuxtConfig } from "@nuxt/types";
 require("dotenv").config();
 
 export const head: NuxtConfig["head"] = {
-  titleTemplate: "%s - " + process.env.APP_NAME,
-  title: process.env.APP_NAME,
+  titleTemplate: (titleChunk: String) => {
+    return titleChunk
+      ? `${titleChunk} - ${process.env.APP_NAME}`
+      : process.env.APP_NAME || "";
+  },
   meta: [
     { charset: "utf-8" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -15,6 +18,10 @@ export const head: NuxtConfig["head"] = {
     }
   ],
   link: [
-    { rel: "icon", type: "image/x-icon", href: "/logo/logo-transparent.png" }
+    {
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/logo/logo-favicon.svg"
+    }
   ]
 };

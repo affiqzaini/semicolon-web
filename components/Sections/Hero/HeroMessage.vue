@@ -1,34 +1,51 @@
 <template>
   <div class="components__heroMessage">
-    <div class="primary--text">
-      <p
-        :class="$vuetify.breakpoint.mdAndUp ? 'text-h3' : 'text-h5'"
-        class="font-weight-black mb-0"
-      >
-        {{ $t("label.connecting") }}
-      </p>
+    <v-img
+      v-if="$vuetify.breakpoint.xsOnly"
+      src="/logo/semicolon_dark.svg"
+      class="d-flex mx-auto mb-8"
+      width="70%"
+      height="auto"
+      contain
+    />
+    <div class="center-between full-width">
+      <div>
+        <div class="primary--text">
+          <p class="font-weight-black mb-0 text-h5 text-md-h3">
+            {{ $t("label.connecting") }}
+          </p>
 
-      <p
-        :class="$vuetify.breakpoint.mdAndUp ? 'text-h4' : null"
-        class="font-weight-bold mb-0"
-      >
-        {{ $t("message.yourBusinessToTheWorld") }}
-      </p>
-      <p class="secondary--text text-body-2 mb-10" style="max-width: 400px">
-        {{ $t("message.weOfferVariousItSolutions") }}
-      </p>
+          <p class="font-weight-bold mb-0 text-md-h4">
+            {{ $t("message.yourBusinessToTheWorld") }}
+          </p>
+
+          <p class="secondary--text text-body-2 mb-10" style="max-width: 400px">
+            {{ $t("message.weOfferVariousItSolutions") }}
+          </p>
+        </div>
+
+        <v-btn
+          @click.prevent="scrollDown"
+          class="mr-auto"
+          :small="$vuetify.breakpoint.xsOnly"
+          rounded
+          depressed
+          color="primary"
+          append
+        >
+          {{ $t("label.moreAboutUs") }}
+          <v-icon right>mdi-chevron-down</v-icon>
+        </v-btn>
+      </div>
+
+      <img
+        v-if="$vuetify.breakpoint.smAndUp"
+        src="/vector-2.svg"
+        height="250px"
+        style="object-fit: contain"
+        width="auto"
+      />
     </div>
-    <v-btn
-      @click.prevent="scrollDown"
-      class="mr-auto"
-      rounded
-      depressed
-      color="primary"
-      append
-    >
-      {{ $t("label.moreAboutUs") }}
-      <v-icon class="ml-2">mdi-chevron-down</v-icon>
-    </v-btn>
   </div>
 </template>
 
@@ -46,16 +63,14 @@ export default class HeroMessage extends Vue {
 
 <style lang="scss" scoped>
 .components__heroMessage {
-  background-image: url("/vector-2.svg");
-  background-repeat: no-repeat;
-  background-position: right center;
+  margin-bottom: 36px;
 
   @media #{map-get($display-breakpoints, 'sm-and-up')} {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 700px;
-    height: 400px;
+    margin-top: 50px;
+    width: 80%;
     background-size: 300px;
   }
 
@@ -63,14 +78,14 @@ export default class HeroMessage extends Vue {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 70px 0;
     width: 1000px;
-    height: 700px;
     background-size: 550px;
   }
 
   @media #{map-get($display-breakpoints, 'xs-only')} {
     max-width: 300px;
-    margin-top: 100px;
+    margin-top: 25px;
     margin-bottom: 30px !important;
     background-image: none !important;
   }

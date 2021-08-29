@@ -4,20 +4,21 @@
       <v-card
         rounded="lg"
         :key="index"
-        class="pa-5 mb-3 mx-2 text-center center-all"
+        class="mb-3 mx-2 text-center center-all"
         width="300"
-        height="180"
+        height="200"
         color="white"
       >
-        <div class="full-height d-flex justify-start align-start flex-column">
-          <v-icon color="accent" class="mb-4" large>{{ item.icon }}</v-icon>
-          <p class="mb-0 text-left text-h6">
-            {{ item.title }}
-          </p>
-          <p class="mb-0 text-left text-caption">
-            {{ item.description }}
-          </p>
-        </div>
+        <v-card-title>
+          <v-icon left color="accent" large>
+            {{ item.icon }}
+          </v-icon>
+          {{ item.title }}
+        </v-card-title>
+
+        <v-card-text>
+          {{ item.description }}
+        </v-card-text>
       </v-card>
     </template>
   </div>
@@ -32,21 +33,22 @@ export default class ListServicesHero extends Vue {
     return [
       {
         title: "Web Services",
-        description: "Static websites and full web applications development.",
-        icon: "mdi-web"
+        description:
+          "From informative corporate websites to development of custom web-based business solutions, we can do it for you.",
+        icon: "mdi-web",
       },
       {
         title: "E-Commerce",
         description:
-          "Consultation, setup, and migration services for your online business.",
-        icon: "mdi-cash-multiple"
+          "Planning to move your business to the world wide web? We provide consultations, store setup, and migration services for your online store.",
+        icon: "mdi-cash-multiple",
       },
       {
         title: "Cloud Solutions",
         description:
-          "Affordable cloud solutions for small to medium business needs.",
-        icon: "mdi-cloud-outline"
-      }
+          "Let's not worry about storage management anymore. Our cloud storage solution is world-class and affordable for small and medium businesses.",
+        icon: "mdi-cloud-outline",
+      },
     ];
   }
 }
@@ -55,7 +57,7 @@ export default class ListServicesHero extends Vue {
 <style lang="scss" scoped>
 .components__listServicesHero {
   @media #{map-get($display-breakpoints, 'md-and-up')} {
-    margin-bottom: 120px !important;
+    margin-bottom: 100px !important;
   }
 
   @media #{map-get($display-breakpoints, 'sm-and-down')} {

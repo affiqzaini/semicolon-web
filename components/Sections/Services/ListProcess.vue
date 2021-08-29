@@ -2,7 +2,13 @@
   <div id="dev-process" class="components__listProcess full-width bg--gradient">
     <v-container class="list-process-container">
       <p
-        class="mb-5 mb-sm-10 text-h5 text-sm-h4 font-weight-bold text-center primary--text"
+        class="
+          mb-5 mb-sm-10
+          text-h5 text-sm-h4
+          font-weight-bold
+          text-center
+          primary--text
+        "
       >
         {{ $t("label.devProcess") }}
       </p>
@@ -19,7 +25,14 @@
         >
           <div class="d-inline-flex align-end">
             <p
-              class="text-h4 mb-0 text-md-h3 font-weight-black primary--text mr-2"
+              class="
+                text-h4
+                mb-0
+                text-md-h3
+                font-weight-black
+                primary--text
+                mr-2
+              "
             >
               {{ item.itemNo }}
             </p>
@@ -29,15 +42,19 @@
           </div>
 
           <v-list>
-            <v-list-item v-for="(point, index) in item.points" :key="index">
-              <v-list-item-icon>
+            <v-list-item
+              class="pl-0"
+              v-for="(point, index) in item.points"
+              :key="index"
+            >
+              <v-list-item-icon class="mr-2">
                 <v-icon color="warning" size="small">
                   mdi-checkbox-blank-circle
                 </v-icon>
               </v-list-item-icon>
 
-              <v-list-item-content class="pa-0">
-                <p class="mb-0 text-subtitle-2">{{ point }}</p>
+              <v-list-item-content class="pa-0 text-subtitle-2">
+                {{ point }}
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -56,48 +73,45 @@ export default class ListProcess extends Vue {
     return [
       {
         itemNo: "01",
-        title: this.$t("label.gatheringInformation"),
+        title: this.$t("label.informationGathering"),
         points: [
-          this.$t("label.projectObjective"),
-          this.$t("label.mainGoals"),
-          this.$t("label.currentIssues")
-        ]
+          "Identify the obstacles in the present business scenarios.",
+          "Determine the objectives of the solution.",
+          "Carry out the initial technical analysis for the solution.",
+        ],
       },
       {
         itemNo: "02",
         title: this.$t("label.projectPlanning"),
         points: [
-          this.$t("label.createSitemapSketch"),
-          this.$t("label.createWireframeAndMockup"),
-          this.$t("label.chooseTechStack"),
-          this.$t("label.finalizeScope"),
-          this.$t("label.determineTimeline")
-        ]
+          "Create initial sitemap sketches and mockups.",
+          "Identify the most suitable tech stack for the solution.",
+          "Finalize the project scope.",
+          "Determine the project timeline.",
+        ],
       },
       {
         itemNo: "03",
         title: this.$t("label.design"),
         points: [
-          this.$t("label.pageLayouts"),
-          this.$t("label.review"),
-          this.$t("label.approvalCycle")
-        ]
+          "Design the layouts for the solution.",
+          "Review and approve proposed designs.",
+        ],
       },
       {
         itemNo: "04",
         title: this.$t("label.contentAssembly"),
         points: [
-          this.$t("label.createNewContent"),
-          this.$t("label.migrateExistingContent")
-        ]
+          "Create new contents and prepare the existing contents to be migrated to the new solution.",
+        ],
       },
       {
         itemNo: "05",
         title: this.$t("label.development"),
         points: [
-          this.$t("label.developAndDeploy"),
-          this.$t("label.seoForWebsites")
-        ]
+          "Development and deployment of the solution.",
+          "Set up website for Search Engine Optimization (SEO).",
+        ],
       },
       {
         itemNo: "06",
@@ -106,9 +120,9 @@ export default class ListProcess extends Vue {
           this.$t("label.internalTesting"),
           this.$t("label.userAcceptanceTest"),
           this.$t("label.crossBrowserCompatibility"),
-          this.$t("label.productLaunch")
-        ]
-      }
+          this.$t("label.productLaunch"),
+        ],
+      },
     ];
   }
 }

@@ -1,11 +1,11 @@
-import { NuxtVueI18n } from 'nuxt-i18n'
+import { Options } from "@nuxtjs/i18n";
 
-export const i18n: NuxtVueI18n.Options.AllOptionsInterface = {
-  locales: [{ code: 'en', iso: 'en-US', file: 'en.js' }],
-  defaultLocale: 'en',
+export const i18n: Options = {
+  locales: [{ code: "en", iso: "en-US", file: "en.js" }],
+  defaultLocale: "en",
   vueI18n: {
-    fallbackLocale: 'en'
+    fallbackLocale: "en"
   },
   lazy: true,
-  langDir: 'locales/'
-}
+  langDir: "locales/"
+};

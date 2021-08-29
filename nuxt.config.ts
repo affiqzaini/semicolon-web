@@ -1,5 +1,4 @@
 import {
-  axios,
   build,
   buildModules,
   css,
@@ -20,8 +19,8 @@ import {
 import { NuxtConfig } from "@nuxt/types";
 
 const config: NuxtConfig = {
+  target: "server",
   ssr: false,
-  axios,
   build,
   buildModules,
   components: true,

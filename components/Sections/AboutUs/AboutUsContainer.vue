@@ -33,18 +33,18 @@ export default class AboutUsContainer extends Vue {
       {
         title: "Professional",
         description:
-          "We are a team professional web developers. Our main goal is to provide you a seamless transition to a new web experience for you and your business."
+          "We are a team of professional web developers. Our main goal is to provide a seamless transition to a new web experience for you and your business.",
       },
       {
         title: "Experience",
         description:
-          "We have experience in numerous web technologies including E-commerce, cloud-based solutions and modern web application frameworks. We have the ability customize your solutions to your tiniest requirements."
+          "We are highly experienced in numerous web technologies. We have the ability customize your needed solution to your tiniest requirements.",
       },
       {
         title: "Affordable",
         description:
-          "We focus on providing solutions to small and medium businesses. Hence our pricing packages are set to ensure affordability for our prospects and clients."
-      }
+          "We focus on offering our solutions to small and medium businesses. Hence our pricing packages are set to ensure affordability for our prospects and clients.",
+      },
     ];
   }
 }

@@ -1,76 +1,94 @@
 <template>
-  <v-app-bar
-    class="components__desktopAppBar mx-auto center-all px-12 py-4"
-    flat
-    color="white"
-    fixed
-  >
-    <div
-      class="app-bar mx-auto d-inline-flex align-center justify-space-between full-width"
-    >
+  <v-app-bar class="components__desktopAppBar" flat color="white" app fixed>
+    <div class="app-bar">
       <div
-        class="appbar-logo cursor-pointer"
+        class="cursor-pointer"
         @click.prevent="goToElement('hero-container')"
       >
-        <v-img src="/logo/logo-web.png" height="auto" width="150px" contain>
-        </v-img>
+        <img
+          src="/logo/semicolon_dark.svg"
+          class="center-all"
+          style="
+            max-width: 150px;
+            width: auto;
+            height: 30px;
+            object-fit: contain;
+          "
+        />
       </div>
 
-      <div class="mt-2">
-        <v-btn
-          text
-          tile
-          depressed
-          color="primary"
-          :key="index"
-          v-for="(item, index) in navMenu"
-          @click.prevent="goToElement(item.to)"
-        >
-          {{ item.title }}
-        </v-btn>
-      </div>
+      <template v-if="$vuetify.breakpoint.mdAndUp">
+        <div>
+          <v-btn
+            text
+            tile
+            depressed
+            color="primary"
+            :key="index"
+            v-for="(item, index) in navMenu"
+            @click.prevent="goToElement(item.to)"
+          >
+            {{ item.title }}
+          </v-btn>
+        </div>
 
-      <div class="mt-2">
         <v-btn
-          depressed
+          rounded
           small
+          :icon="$vuetify.breakpoint.smAndDown"
           color="primary"
           @click.prevent="goToElement('contact-footer')"
         >
-          {{ $t("label.contactUs") }}
+          <v-icon v-if="$vuetify.breakpoint.smAndDown">mdi-email</v-icon>
+          <span v-else>{{ $t("label.contactUs") }} </span>
         </v-btn>
-      </div>
+      </template>
+
+      <template v-else>
+        <nav-menu />
+      </template>
     </div>
   </v-app-bar>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
+import NavMenu from "./NavMenu.vue";
 
-@Component
+@Component({
+  components: {
+    NavMenu,
+  },
+})
 export default class DesktopAppBar extends Vue {
+  get headerImage() {
+    return this.$vuetify.breakpoint.smAndDown
+      ? "/logo/semicolon_dark_logo.svg"
+      : "/logo/semicolon_dark.svg";
+  }
+
   get navMenu() {
     return [
       {
         name: "home",
         title: this.$t("label.home"),
-        to: "hero-container"
+        to: "hero-container",
       },
       {
         name: "about-us",
         title: this.$t("label.aboutUs"),
-        to: "about-us"
+        to: "about-us",
       },
       {
         name: "our-process",
         title: this.$t("label.ourProcess"),
-        to: "dev-process"
+        to: "dev-process",
       },
       {
         name: "our-services",
         title: this.$t("label.ourServices"),
-        to: "our-services"
-      }
+        to: "our-services",
+      },
     ];
   }
 
@@ -83,10 +101,15 @@ export default class DesktopAppBar extends Vue {
 
 <style lang="scss" scoped>
 .components__desktopAppBar {
-  height: 100px !important;
+  padding: 0 12px;
 
   .app-bar {
     max-width: 1900px;
+    margin: 0 auto !important;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 }
 </style>
