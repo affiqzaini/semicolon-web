@@ -1,4 +1,4 @@
-steps: 
+steps:
 - name: node:14
   entrypoint: npm
   args: ['run', 'create-env']
@@ -18,7 +18,7 @@ steps:
     - 'THEME_SUCCESS=${_THEME_SUCCESS}'
     - 'EMAILJS_SERVICE_ID=${_EMAILJS_SERVICE_ID}'
     - 'EMAILJS_TEMPLATE_ID=${_EMAILJS_TEMPLATE_ID}'
-    - name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/semicolon-web/server', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/semicolon-web/server']
