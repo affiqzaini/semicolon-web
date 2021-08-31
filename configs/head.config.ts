@@ -15,7 +15,9 @@ export const head: NuxtConfig["head"] = {
       hid: "description",
       name: "description",
       content: process.env.APP_META_DESCRIPTION || ""
-    }
+    },
+    { property: "og:image", content: "/logo/logo-favicon.svg" || "" },
+    { property: "og:type", content: "website" }
   ],
   link: [
     {
