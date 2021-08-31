@@ -42,6 +42,7 @@
             <p class="text-subtitle-2 secondary--text">Social Links</p>
             <v-btn
               icon
+              color="white"
               class="mr-3"
               v-for="(item, index) in socialLinks"
               :key="index"

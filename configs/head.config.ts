@@ -16,14 +16,14 @@ export const head: NuxtConfig["head"] = {
       name: "description",
       content: process.env.APP_META_DESCRIPTION || ""
     },
-    { property: "og:image", content: "/logo/logo-favicon.svg" || "" },
+    { property: "og:image", content: "/favicon-large.png" || "" },
     { property: "og:type", content: "website" }
   ],
   link: [
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "/logo/logo-favicon.svg"
+      href: "favicon.png"
     }
   ]
 };
