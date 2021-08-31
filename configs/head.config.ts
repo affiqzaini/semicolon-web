@@ -23,7 +23,7 @@ export const head: NuxtConfig["head"] = {
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "favicon.png"
+      href: "/favicon.png"
     }
   ]
 };
