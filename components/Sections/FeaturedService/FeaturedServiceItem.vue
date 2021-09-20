@@ -1,6 +1,11 @@
 <template>
   <div class="components__featuredServiceItem full-width">
-    <v-img src="https://source.unsplash.com/weekly" aspect-ratio="6"> </v-img>
+    <v-img
+      alt="service"
+      src="https://source.unsplash.com/weekly"
+      aspect-ratio="6"
+    >
+    </v-img>
   </div>
 </template>
 

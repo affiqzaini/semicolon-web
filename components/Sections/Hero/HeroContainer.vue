@@ -9,6 +9,7 @@
       width="80%"
       max-width="80%"
       class="mb-10"
+      alt="hero-image"
       v-if="$vuetify.breakpoint.xsOnly"
     />
     <list-services-hero />
@@ -23,8 +24,8 @@ import ListServicesHero from "./ListServicesHero.vue";
 @Component({
   components: {
     HeroMessage,
-    ListServicesHero
-  }
+    ListServicesHero,
+  },
 })
 export default class HeroContainer extends Vue {
   get vectorSize() {

@@ -8,6 +8,7 @@
         <img
           src="/logo/semicolon_dark.svg"
           class="center-all"
+          alt="Semicolon Malaysia"
           style="
             max-width: 150px;
             width: auto;

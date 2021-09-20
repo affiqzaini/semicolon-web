@@ -1,7 +1,7 @@
 <template>
   <div class="components__mobileAppBar mx-auto overflow-hidden">
     <v-app-bar dense flat color="white" fixed>
-      <img src="/logo/logo-web.png" class="logo" />
+      <img src="/logo/logo-web.png" alt="Semicolon Malaysia" class="logo" />
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon
         class="primary--text"
@@ -39,28 +39,28 @@ export default class MobileAppBar extends Vue {
       {
         name: "home",
         title: this.$t("label.home"),
-        to: "hero-container"
+        to: "hero-container",
       },
       {
         name: "about-us",
         title: this.$t("label.aboutUs"),
-        to: "about-us"
+        to: "about-us",
       },
       {
         name: "our-process",
         title: this.$t("label.ourProcess"),
-        to: "dev-process"
+        to: "dev-process",
       },
       {
         name: "our-services",
         title: this.$t("label.ourServices"),
-        to: "our-services"
+        to: "our-services",
       },
       {
         name: "contact-us",
         title: this.$t("label.contactUs"),
-        to: "contact-footer"
-      }
+        to: "contact-footer",
+      },
     ];
   }
 

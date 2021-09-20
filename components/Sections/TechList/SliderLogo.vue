@@ -11,6 +11,7 @@
               @click.prevent="routeLink(item.link)"
               class="tech-logo cursor-pointer"
               :src="item.logoUrl"
+              alt="logo"
               height="100"
               width="auto"
               contain

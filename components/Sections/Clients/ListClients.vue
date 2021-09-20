@@ -14,6 +14,7 @@
               height="150"
               width="150"
               contain
+              alt="logo"
             ></v-img>
           </v-col>
         </template>

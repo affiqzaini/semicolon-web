@@ -6,18 +6,19 @@
       class="d-flex mx-auto mb-8"
       width="70%"
       height="auto"
+      alt="hero-image"
       contain
     />
     <div class="center-between full-width">
       <div>
         <div class="primary--text">
-          <p class="font-weight-black mb-0 text-h5 text-md-h3">
+          <h1 class="font-weight-black mb-0 text-h5 text-md-h3">
             {{ $t("label.connecting") }}
-          </p>
+          </h1>
 
-          <p class="font-weight-bold mb-0 text-md-h4">
+          <h1 class="font-weight-bold mb-0 text-md-h4">
             {{ $t("message.yourBusinessToTheWorld") }}
-          </p>
+          </h1>
 
           <p class="secondary--text text-body-2 mb-10" style="max-width: 400px">
             {{ $t("message.weOfferVariousItSolutions") }}
@@ -41,6 +42,7 @@
       <img
         v-if="$vuetify.breakpoint.smAndUp"
         src="/vector-2.svg"
+        alt="hero-image"
         height="250px"
         style="object-fit: contain"
         width="auto"

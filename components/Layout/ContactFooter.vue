@@ -7,6 +7,7 @@
           width="200"
           max-height="50"
           contain
+          alt="Semicolon Malaysia"
           class="mb-3 d-flex"
         />
 

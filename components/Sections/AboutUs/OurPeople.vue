@@ -8,7 +8,11 @@
         width="120"
         color="white"
       >
-        <v-img contain src="https://source.unsplash.com/300x300/?people" />
+        <v-img
+          contain
+          alt="profile"
+          src="https://source.unsplash.com/300x300/?people"
+        />
       </v-avatar>
       <p class="mb-0 text-center">Affiq Zaini</p>
       <p class="text-caption text-center">Co-founder</p>
@@ -22,7 +26,11 @@
         width="120"
         color="white"
       >
-        <v-img contain src="https://source.unsplash.com/300x300/?man" />
+        <v-img
+          alt="profile"
+          contain
+          src="https://source.unsplash.com/300x300/?man"
+        />
       </v-avatar>
       <p class="mb-0 text-center">Mu'adz Rosli</p>
       <p class="text-caption text-center">Co-founder</p>
