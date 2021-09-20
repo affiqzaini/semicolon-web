@@ -18,6 +18,7 @@ steps:
     - 'THEME_SUCCESS=${_THEME_SUCCESS}'
     - 'EMAILJS_SERVICE_ID=${_EMAILJS_SERVICE_ID}'
     - 'EMAILJS_TEMPLATE_ID=${_EMAILJS_TEMPLATE_ID}'
+    - 'GOOGLE_ANALYTICS_ID=${_GOOGLE_ANALYTICS_ID}'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/web-semicolon/server', '.']
 - name: 'gcr.io/cloud-builders/docker'
