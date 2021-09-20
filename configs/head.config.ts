@@ -6,7 +6,7 @@ export const head: NuxtConfig["head"] = {
   titleTemplate: (titleChunk: String) => {
     return titleChunk
       ? `${titleChunk} - ${process.env.APP_NAME}`
-      : process.env.APP_NAME || "";
+      : `${process.env.APP_NAME} - IT Consulting Services` || "";
   },
   meta: [
     { charset: "utf-8" },

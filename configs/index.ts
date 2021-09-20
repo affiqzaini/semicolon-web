@@ -13,3 +13,4 @@ export { router } from "./router.config";
 export { server } from "./server.config";
 export { toast } from "./toast.config";
 export { vuetify } from "./vuetify.config";
+export { googleAnalytics } from "./googleAnalytics.config";
