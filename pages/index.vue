@@ -24,13 +24,13 @@ import SliderLogo from "~/components/Sections/TechList/SliderLogo.vue";
     FeaturedServiceItem,
     SliderLogo,
     ListProcess,
-    ListServices
+    ListServices,
   },
   head() {
     return {
-      title: this.$t("pageTitle.home") as string
+      title: this.$t("pageTitle.home") as string,
     };
-  }
+  },
 })
 export default class PageIndex extends Vue {}
 </script>

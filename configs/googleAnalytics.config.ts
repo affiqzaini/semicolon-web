@@ -1,3 +1,14 @@
-export const googleAnalytics = {
-  id: process.env.GOOGLE_ANALYTICS_ID
+import { NuxtConfig } from "@nuxt/types";
+
+export const googleAnalytics: NuxtConfig["googleAnalytics"] = {
+  id: process.env.GOOGLE_ANALYTICS_ID || "",
+  autoTracking: {
+    screenview: true,
+    page: true,
+    skipSamePath: true,
+    transformQueryString: false,
+    shouldRouterUpdate: (to, from) => {
+      return (to.path !== from.path).toString();
+    }
+  }
 };

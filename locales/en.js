@@ -1,6 +1,7 @@
 export default {
   pageTitle: {
-    home: "Home"
+    home: "Home",
+    contactUs: "Contact Us"
   },
   label: {
     aboutUs: "About Us",
