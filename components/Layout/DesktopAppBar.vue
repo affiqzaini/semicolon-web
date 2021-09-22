@@ -22,12 +22,12 @@
         <div>
           <v-btn
             text
-            tile
+            rounded
             depressed
             color="primary"
             :key="index"
             v-for="(item, index) in navMenu"
-            @click.prevent="goToElement(item.to)"
+            :to="item.to"
           >
             {{ item.title }}
           </v-btn>
@@ -38,7 +38,7 @@
           small
           :icon="$vuetify.breakpoint.smAndDown"
           color="primary"
-          @click.prevent="goToElement('contact-footer')"
+          :to="localePath({ name: 'contactUs' })"
         >
           <v-icon v-if="$vuetify.breakpoint.smAndDown">mdi-email</v-icon>
           <span v-else>{{ $t("label.contactUs") }} </span>
@@ -73,22 +73,27 @@ export default class DesktopAppBar extends Vue {
       {
         name: "home",
         title: this.$t("label.home"),
-        to: "hero-container",
+        to: this.localePath({ name: "index" }),
       },
       {
         name: "about-us",
         title: this.$t("label.aboutUs"),
-        to: "about-us",
+        to: this.localePath({ name: "aboutUs" }),
       },
-      {
-        name: "our-process",
-        title: this.$t("label.ourProcess"),
-        to: "dev-process",
-      },
+      // {
+      //   name: "our-process",
+      //   title: this.$t("label.ourProcess"),
+      //   to: this.localePath({ name: "devProcess" }),
+      // },
       {
         name: "our-services",
         title: this.$t("label.ourServices"),
-        to: "our-services",
+        to: this.localePath({ name: "services" }),
+      },
+      {
+        name: "portfolio",
+        title: this.$t("label.portfolio"),
+        to: this.localePath({ name: "portfolio" }),
       },
     ];
   }

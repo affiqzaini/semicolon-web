@@ -39,6 +39,7 @@ export default {
     ourServices: "Our Services",
     pageLayouts: "Design page layouts",
     phoneOptional: "Phone No (Optional)",
+    portfolio: "Portfolio",
     productLaunch: "Product Launch!",
     projectObjectives: "Identify project objectives",
     projectPlanning: "Project Planning",

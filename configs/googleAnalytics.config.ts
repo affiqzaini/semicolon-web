@@ -7,7 +7,7 @@ export const googleAnalytics: NuxtConfig["googleAnalytics"] = {
     page: true,
     skipSamePath: true,
     transformQueryString: false,
-    shouldRouterUpdate: (to, from) => {
+    shouldRouterUpdate: (to: any, from: any) => {
       return (to.path !== from.path).toString();
     }
   }

@@ -1,4 +1,5 @@
 import { NuxtConfig } from "@nuxt/types";
+import { createSEOMeta } from "../utils/seo";
 
 require("dotenv").config();
 
@@ -9,15 +10,11 @@ export const head: NuxtConfig["head"] = {
       : `${process.env.APP_NAME} - IT Consulting Services` || "";
   },
   meta: [
-    { charset: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    {
-      hid: "description",
-      name: "description",
-      content: process.env.APP_META_DESCRIPTION || ""
-    },
-    { property: "og:image", content: "/og-image.png" || "" },
-    { property: "og:type", content: "website" }
+    ...createSEOMeta({
+      title: "",
+      description: "",
+      image: "/og-image.png" || ""
+    })
   ],
   link: [
     {
