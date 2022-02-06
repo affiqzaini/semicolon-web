@@ -1,29 +1,47 @@
 <template>
-  <div id="our-services" class="components__listServices py-5 py-sm-10">
-    <v-container fluid class="service-container">
+  <div id="our-services" class="components__listServices primary">
+    <div class="inner-section">
       <p
         class="
           mb-10
-          text-h5 text-sm-h4
+          text-h4
           font-weight-bold
-          primary--text
+          white--text
           text-center
+          text-uppercase
         "
       >
-        {{ $t("label.ourServices") }}
+        What we do
       </p>
 
-      <template v-for="(item, index) in services">
-        <v-card tile flat :key="index" width="100%" class="mb-4">
-          <v-card-title class="mb-0 text-h6 text-sm-h5">
-            {{ item.title }}
-          </v-card-title>
-          <v-card-subtitle>
-            {{ item.description }}
-          </v-card-subtitle>
-        </v-card>
-      </template>
-    </v-container>
+      <v-row class="ma-0">
+        <v-col cols="12" md="4" v-for="(item, index) in services" :key="index">
+          <v-card
+            color="transparent"
+            tile
+            flat
+            width="100%"
+            class="mb-4 white--text"
+          >
+            <v-card-title class="mb-0 text-h6 text-sm-h5">
+              {{ item.title }}
+            </v-card-title>
+            <v-card-subtitle>
+              <v-list color="transparent">
+                <v-list-item
+                  class="white--text "
+                  v-for="(desc, index) in item.description"
+                  :key="index"
+                >
+                  <v-icon small color="white" class="mr-2">mdi-circle</v-icon>
+                  {{ desc }}
+                </v-list-item>
+              </v-list>
+            </v-card-subtitle>
+          </v-card>
+        </v-col>
+      </v-row>
+    </div>
   </div>
 </template>
 
@@ -35,23 +53,52 @@ export default class ListServices extends Vue {
   get services() {
     return [
       {
-        title: this.$t("label.webDevelopment"),
-        image: "/vector-6.svg",
-        description:
-          "We develop websites with a wide range of functionalities from a static informative website to a full web application with front and back end configurations. The tech stack for your website will be advised according to the requirements that you have.",
+        title: "Web Development",
+        description: [
+          "Frontend Development",
+          "Backend Development",
+          "System Integrations",
+          "Cloud Managed Services"
+        ]
       },
       {
         title: this.$t("label.ecommerce"),
-        image: "/vector-3.svg",
-        description:
-          "We have experience in various modern e-commerce platforms like Shopify, Wix, EasyStore and many more. We provide setup, custom design, migrations and flow enhancement services for your new or current platforms. We are also an official Shopify Partner.",
+        description: [
+          "Online Store Setup",
+          "Data Migration",
+          "Application Integrations",
+          "Account Monitoring"
+        ]
       },
       {
-        title: this.$t("label.cloudSolutions"),
-        image: "/cloud.svg",
-        description:
-          "We believe that cloud is the best way to store data for your business as it provides the best accessibility and security. We have a cloud storage service that will enable you to store your files and access it anywhere. Different from other service providers, our pricing packages are based on storage size instead of number of users. ",
+        title: "Digital Marketing",
+        description: [
+          "Advertisement Setup",
+          "Strategy Optimization",
+          "Campaign Monitoring",
+          "Content Research & Planning"
+        ]
       },
+      {
+        title: "Design",
+        description: [
+          "Design Research",
+          "Design Concepts",
+          "Prototypes",
+          "UI/UX Design",
+          "UI/UX Production"
+        ]
+      },
+      {
+        title: "Tech Strategy",
+        description: [
+          "Product Development Process",
+          "Product Research and Proposals",
+          "Growth Hacking",
+          "Project Management",
+          "Training and Support"
+        ]
+      }
     ];
   }
 }

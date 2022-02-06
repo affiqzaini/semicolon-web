@@ -1,25 +1,23 @@
 <template>
-  <div class="components__listClients">
-    <v-container class="client-container">
-      <p class="text-h5 text-sm-h4 font-weight-bold primary--text text-center">
-        {{ $t("label.ourClients") }}
-      </p>
-      <v-row class="ma-0">
-        <template v-for="(item, index) in clients">
-          <v-col cols="4" :key="index">
-            <v-img
-              class="client-logo mx-3 cursor-pointer"
-              @click.prevent="goToClient(item.link)"
-              :src="item.logo"
-              height="150"
-              width="150"
-              contain
-              alt="logo"
-            ></v-img>
-          </v-col>
-        </template>
-      </v-row>
-    </v-container>
+  <div class="components__listClients inner-section">
+    <p class="text-h4 text-md-h3 font-weight-bold white--text text-center">
+      {{ $t("label.ourClients") }}
+    </p>
+    <v-row class="ma-0" align="center" justify="center">
+      <template v-for="(item, index) in clients">
+        <v-col cols="6" sm="4" :key="index" class="center-all">
+          <v-img
+            class="client-logo cursor-pointer"
+            @click.prevent="goToClient(item.link)"
+            :src="item.logo"
+            height="auto"
+            width="150"
+            contain
+            alt="logo"
+          ></v-img>
+        </v-col>
+      </template>
+    </v-row>
   </div>
 </template>
 
@@ -33,18 +31,18 @@ export default class ListClients extends Vue {
       {
         name: "Studio Kittuco",
         logo: "/clients/kittuco.svg",
-        link: "http://www.kittuco.com",
+        link: "http://www.kittuco.com"
       },
       {
         name: "One Plus Two Thrift Store",
         logo: "/clients/opt.png",
-        link: "http://www.oneplustwo.my",
+        link: "http://www.oneplustwo.my"
       },
       {
         name: "DD Plastic Sdn Bhd",
         logo: "/clients/dd-plastic.png",
-        link: "https://ddplastic.com.my",
-      },
+        link: "https://ddplastic.com.my"
+      }
     ];
   }
 
@@ -56,13 +54,6 @@ export default class ListClients extends Vue {
 
 <style lang="scss" scoped>
 .components__listClients {
-  .client-container {
-    max-width: 500px;
-    padding: 0px 36px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-  }
   .client-logo {
     &:hover {
       transform: scale(1.2, 1.2);

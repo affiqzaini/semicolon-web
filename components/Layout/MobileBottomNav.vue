@@ -1,77 +1,85 @@
 <template>
-  <v-bottom-navigation
+  <v-app-bar
+    class="components__desktopAppBar"
+    flat
+    width="100vw"
+    color="white"
+    height="65px"
     app
     fixed
-    height="45"
-    class="components__mobileBottomNav rounded-t-xl primary"
-    color="white"
   >
+    <v-img
+      src="/logo/semicolon-logo.svg"
+      height="40px"
+      position="left center"
+      width="auto"
+      contain
+      class="ml-3"
+      alt="logo"
+    />
+    <v-spacer> </v-spacer>
     <v-bottom-sheet v-model="navSheet">
       <template v-slot:activator="{ on }">
-        <div class="full-width center-all" v-on="on">
-          <v-icon color="white">mdi-menu</v-icon>
+        <div v-on="on">
+          <v-icon color="black">mdi-menu</v-icon>
         </div>
       </template>
 
-      <v-sheet class="rounded-t-xl" height="auto">
-        <v-toolbar
-          height="45"
-          flat
-          class="primary rounded-t-xl"
-          @click="navSheet = false"
-        >
-          <v-icon color="white" class="d-flex mx-auto">mdi-chevron-down</v-icon>
-        </v-toolbar>
-
-        <v-row class="py-2">
-          <v-col cols="6" v-for="(item, index) in navMenu" :key="index">
-            <div
-              class="center-all flex-column"
-              @click.prevent="goToElement(item.to)"
-            >
-              <v-icon large>{{ item.icon }}</v-icon>
-              <p class="text-uppercase mb-0 text-caption">{{ item.title }}</p>
-            </div>
-          </v-col>
-        </v-row>
+      <v-sheet class="rounded-t-xl" min-height="50vh">
+        <v-list nav>
+          <v-list-item
+            class="text-center"
+            v-for="(item, index) in navMenu"
+            :key="index"
+            active-class="primary--text"
+            :to="item.to"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
       </v-sheet>
     </v-bottom-sheet>
-  </v-bottom-navigation>
+  </v-app-bar>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator";
+import { Vue, Component, Watch } from "nuxt-property-decorator";
 
 @Component({})
 export default class MobileBottomNav extends Vue {
   navSheet: boolean = false;
+
+  @Watch("route")
+  onRouteChanged() {
+    this.navSheet = false;
+  }
+
+  get route() {
+    return this.$route.fullPath;
+  }
 
   get navMenu() {
     return [
       {
         name: "home",
         title: this.$t("label.home"),
-        icon: "mdi-home-variant-outline",
-        to: "hero-container",
+        to: this.localePath({ name: "index" })
       },
       {
         name: "about-us",
         title: this.$t("label.aboutUs"),
-        icon: "mdi-account-group-outline",
-        to: "about-us",
-      },
-      {
-        name: "our-process",
-        title: this.$t("label.ourProcess"),
-        icon: "mdi-arrow-decision-outline",
-        to: "dev-process",
+        to: this.localePath({ name: "aboutUs" })
       },
       {
         name: "our-services",
         title: this.$t("label.ourServices"),
-        icon: "mdi-gesture-double-tap",
-        to: "our-services",
+        to: this.localePath({ name: "services" })
       },
+      {
+        name: "contact-us",
+        title: this.$t("label.contactUs"),
+        to: this.localePath({ name: "contactUs" })
+      }
     ];
   }
 

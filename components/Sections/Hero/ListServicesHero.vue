@@ -7,7 +7,7 @@
         class="mb-3 mx-2 text-center center-all"
         width="300"
         height="200"
-        color="white"
+        color="#eeeeee"
       >
         <v-card-title>
           <v-icon left color="accent" large>
@@ -32,23 +32,23 @@ export default class ListServicesHero extends Vue {
   get services() {
     return [
       {
-        title: "Web Services",
+        title: "Website Development",
         description:
-          "From informative corporate websites to development of custom web-based business solutions, we can do it for you.",
-        icon: "mdi-web",
+          "Whatever you need in you business website, from static corporate website to a fully customized web applications, we are able to do it for you.",
+        icon: "mdi-web"
       },
       {
         title: "E-Commerce",
         description:
           "Planning to move your business to the world wide web? We provide consultations, store setup, and migration services for your online store.",
-        icon: "mdi-cash-multiple",
+        icon: "mdi-cash-multiple"
       },
       {
         title: "Cloud Solutions",
         description:
           "Let's not worry about storage management anymore. Our cloud storage solution is world-class and affordable for small and medium businesses.",
-        icon: "mdi-cloud-outline",
-      },
+        icon: "mdi-cloud-outline"
+      }
     ];
   }
 }

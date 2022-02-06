@@ -1,6 +1,6 @@
 <template>
   <div class="components__heroMessage">
-    <v-img
+    <!-- <v-img
       v-if="$vuetify.breakpoint.xsOnly"
       src="/logo/semicolon_dark.svg"
       class="d-flex mx-auto mb-8"
@@ -8,7 +8,7 @@
       height="auto"
       alt="hero-image"
       contain
-    />
+    /> -->
     <div class="center-between full-width">
       <div>
         <div class="primary--text">
@@ -26,6 +26,7 @@
         </div>
 
         <v-btn
+          :to="localePath({ name: 'aboutUs' })"
           @click.prevent="scrollDown"
           class="mr-auto"
           :small="$vuetify.breakpoint.xsOnly"

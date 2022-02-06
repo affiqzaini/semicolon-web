@@ -1,36 +1,33 @@
 <template>
   <div class="pages__index">
-    <hero-container />
-    <about-us-container />
-    <list-process />
-    <list-services />
+    <hero-section />
+    <services-summary />
     <slider-logo />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
-import AboutUsContainer from "~/components/Sections/AboutUs/AboutUsContainer.vue";
-import FeaturedServiceItem from "~/components/Sections/FeaturedService/FeaturedServiceItem.vue";
-import HeroContainer from "~/components/Sections/Hero/HeroContainer.vue";
-import ListProcess from "~/components/Sections/Services/ListProcess.vue";
-import ListServices from "~/components/Sections/Services/ListServices.vue";
+import HeroSection from "~/components/Pages/Home/HeroSection.vue";
+import ServicesSummary from "~/components/Pages/Home/ServicesSummary.vue";
 import SliderLogo from "~/components/Sections/TechList/SliderLogo.vue";
+import { PageView } from "vue-gtag";
 
 @Component({
   components: {
-    HeroContainer,
-    AboutUsContainer,
-    FeaturedServiceItem,
-    SliderLogo,
-    ListProcess,
-    ListServices,
+    HeroSection,
+    ServicesSummary,
+    SliderLogo
   },
   head() {
     return {
-      title: this.$t("pageTitle.home") as string,
+      title: this.$t("pageTitle.home") as string
     };
-  },
+  }
 })
-export default class PageIndex extends Vue {}
+export default class PageIndex extends Vue {
+  mounted() {
+    this.$gtag.pageview(this.$route as PageView);
+  }
+}
 </script>

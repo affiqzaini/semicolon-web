@@ -1,6 +1,6 @@
 <template>
   <h1 class="components__pageTitle text-h4 font-weight-black text-center mb-5">
-    {{ $t("pageTitle.contactUs") }}
+    {{ title }}
   </h1>
 </template>
 

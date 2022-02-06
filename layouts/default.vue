@@ -1,28 +1,29 @@
 <template>
   <v-app>
     <header>
-      <desktop-app-bar v-if="$vuetify.breakpoint.smAndUp" />
+      <desktop-app-bar v-if="$vuetify.breakpoint.mdAndUp" />
+      <mobile-bottom-nav v-else />
     </header>
 
-    <v-main>
+    <v-main class="pb-0">
       <body>
         <nuxt />
       </body>
-      <contact-footer />
     </v-main>
-    <v-footer absolute app v-if="$vuetify.breakpoint.smAndUp">
-      <span class="text-caption full-width text-right black--text">
-        &copy; {{ new Date().getFullYear() + ` Semicolon Malaysia` }}
+    <layout-footer />
+    <v-footer absolute app v-if="$vuetify.breakpoint.smAndUp" color="#303030">
+      <span class="text-caption full-width text-center white--text">
+        &copy;
+        {{ new Date().getFullYear() + ` Semicolon Malaysia Ent. 003309851-P` }}
       </span>
     </v-footer>
-    <mobile-bottom-nav v-else />
   </v-app>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
-import ContactFooter from "~/components/Layout/ContactFooter.vue";
 import DesktopAppBar from "~/components/Layout/DesktopAppBar.vue";
+import LayoutFooter from "~/components/Layout/LayoutFooter.vue";
 import MobileAppBar from "~/components/Layout/MobileAppBar.vue";
 import MobileBottomNav from "~/components/Layout/MobileBottomNav.vue";
 
@@ -30,9 +31,9 @@ import MobileBottomNav from "~/components/Layout/MobileBottomNav.vue";
   components: {
     MobileAppBar,
     DesktopAppBar,
-    ContactFooter,
-    MobileBottomNav,
-  },
+    LayoutFooter,
+    MobileBottomNav
+  }
 })
 export default class LayoutDefault extends Vue {
   get appBar() {

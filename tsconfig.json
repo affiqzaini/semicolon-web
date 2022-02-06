@@ -21,8 +21,8 @@
       "@nuxtjs/axios",
       "@nuxtjs/toast",
       "@nuxtjs/i18n",
-      "vuetify",
-      "@nuxtjs/google-analytics"
+      "@nuxtjs/google-analytics",
+      "vuetify"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

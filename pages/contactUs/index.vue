@@ -13,13 +13,13 @@ import SocialShare from "~/components/Pages/ContactUs/SocialShare.vue";
 @Component({
   head() {
     return {
-      title: this.$t("pageTitle.contactUs") as string,
+      title: this.$t("pageTitle.contactUs") as string
     };
   },
   components: {
     ContactForm,
-    SocialShare,
-  },
+    SocialShare
+  }
 })
 export default class PageContactUs extends Vue {}
 </script>

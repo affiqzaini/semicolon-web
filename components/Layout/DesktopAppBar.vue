@@ -1,9 +1,16 @@
 <template>
-  <v-app-bar class="components__desktopAppBar" flat color="white" app fixed>
+  <v-app-bar
+    class="components__desktopAppBar"
+    flat
+    color="white"
+    height="80px"
+    app
+    fixed
+  >
     <div class="app-bar">
       <div
         class="cursor-pointer"
-        @click.prevent="goToElement('hero-container')"
+        @click.prevent="$router.push(localePath({ name: 'index' }))"
       >
         <img
           src="/logo/semicolon_dark.svg"
@@ -19,19 +26,18 @@
       </div>
 
       <template v-if="$vuetify.breakpoint.mdAndUp">
-        <div>
-          <v-btn
-            text
-            rounded
-            depressed
-            color="primary"
+        <v-list class="d-flex" width="600" rounded>
+          <v-list-item
+            class="center-all rounded-pill mb-1"
+            link
+            active-class="primary--text"
             :key="index"
             v-for="(item, index) in navMenu"
             :to="item.to"
           >
             {{ item.title }}
-          </v-btn>
-        </div>
+          </v-list-item>
+        </v-list>
 
         <v-btn
           rounded
@@ -58,8 +64,8 @@ import NavMenu from "./NavMenu.vue";
 
 @Component({
   components: {
-    NavMenu,
-  },
+    NavMenu
+  }
 })
 export default class DesktopAppBar extends Vue {
   get headerImage() {
@@ -73,28 +79,23 @@ export default class DesktopAppBar extends Vue {
       {
         name: "home",
         title: this.$t("label.home"),
-        to: this.localePath({ name: "index" }),
+        to: this.localePath({ name: "index" })
       },
       {
         name: "about-us",
         title: this.$t("label.aboutUs"),
-        to: this.localePath({ name: "aboutUs" }),
+        to: this.localePath({ name: "aboutUs" })
       },
-      // {
-      //   name: "our-process",
-      //   title: this.$t("label.ourProcess"),
-      //   to: this.localePath({ name: "devProcess" }),
-      // },
       {
         name: "our-services",
         title: this.$t("label.ourServices"),
-        to: this.localePath({ name: "services" }),
-      },
-      {
-        name: "portfolio",
-        title: this.$t("label.portfolio"),
-        to: this.localePath({ name: "portfolio" }),
-      },
+        to: this.localePath({ name: "services" })
+      }
+      // {
+      //   name: "portfolio",
+      //   title: this.$t("label.portfolio"),
+      //   to: this.localePath({ name: "portfolio" })
+      // }
     ];
   }
 

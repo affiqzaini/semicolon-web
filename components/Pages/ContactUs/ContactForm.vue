@@ -1,10 +1,17 @@
 <template>
-  <div class="components__contactForm center-all flex-column py-10">
+  <div class="components__contactForm inner-section py-10">
     <h1 class="text-h4 font-weight-black text-center mb-5">
-      {{ $t("pageTitle.contactUs") }}
+      How Can We Help?
     </h1>
 
-    <div class="contact-form">
+    <div class="contact-form mx-auto">
+      <p
+        class="text-center text-subtitle-2"
+        style="max-width: 500px; word-break:break"
+      >
+        For any enquiries regarding our services, please fill out our contact
+        form and we will be in touch with you immediately.
+      </p>
       <v-text-field
         dense
         hide-details
@@ -44,7 +51,9 @@
       <v-btn
         depressed
         color="primary"
-        width="120"
+        width="200"
+        :block="$vuetify.breakpoint.xsOnly"
+        large
         class="d-flex mx-auto"
         rounded
         :loading="loading"
@@ -59,6 +68,7 @@
 <script lang="ts">
 import { Vue, Component } from "nuxt-property-decorator";
 import emailjs, { init } from "emailjs-com";
+import { PageView } from "vue-gtag";
 
 @Component({})
 export default class ContactForm extends Vue {
@@ -68,13 +78,14 @@ export default class ContactForm extends Vue {
     from_name: null,
     reply_to: null,
     phone_no: null,
-    message: null,
+    message: null
   };
 
   client: any = null;
 
   mounted() {
     this.initializeEmailjs();
+    this.$gtag.pageview(this.$route as PageView);
   }
 
   initializeEmailjs() {
@@ -109,12 +120,13 @@ export default class ContactForm extends Vue {
         from_name: "",
         reply_to: "",
         phone_no: "",
-        message: "",
+        message: ""
       };
     } catch (error) {
       this.$toasted.error(this.$t("message.plsTryAgainLater") as string);
     } finally {
       this.loading = false;
+      this.$gtag.event("web-inquiry");
     }
   }
 }
@@ -123,7 +135,7 @@ export default class ContactForm extends Vue {
 <style lang="scss" scoped>
 .components__contactForm {
   .contact-form {
-    width: 500px;
+    max-width: 500px;
   }
 }
 </style>
