@@ -1,33 +1,21 @@
 <template>
   <div class="components__aboutUs inner-section pb-12">
-    <v-row class="full-size pt-12" align="center">
-      <v-col cols="12" md="7">
-        <v-img
-          src="/vector-4.svg"
-          height="auto"
-          width="100%"
-          contain
-          alt="aboutUs Image"
-        />
-      </v-col>
+    <p class="text-h4 font-weight-black primary--text mb-10">Why Choose Us?</p>
 
-      <v-col cols="12" md="5">
-        <p class="text-h4 font-weight-black primary--text">Why Choose Us?</p>
-        <div v-for="(item, index) in description" :key="index" class="mb-2">
-          <div class="d-inline-flex align-end mb-3">
-            <v-icon large color="success darken-1" class="mr-2">
-              mdi-checkbox-marked-circle-outline
-            </v-icon>
-            <p class="text-h6 mb-0">{{ item.title }}</p>
-          </div>
-
-          <p style="max-width: 400px" class="text-subtitle-2 secondary--text">
-            {{ item.description }}
-          </p>
+    <v-row>
+      <v-col cols="12" md="4" v-for="(item, index) in description" :key="index">
+        <div class="d-inline-flex align-end mb-3">
+          <v-icon large color="accent" class="mr-2">
+            mdi-checkbox-marked-circle-outline
+          </v-icon>
+          <p class="text-h6 mb-0">{{ item.title }}</p>
         </div>
+
+        <p style="max-width: 400px" class="text-subtitle-2 secondary--text">
+          {{ item.description }}
+        </p>
       </v-col>
     </v-row>
-    <!-- </div> -->
   </div>
 </template>
 
@@ -65,23 +53,11 @@ export default class AboutUs extends Vue {
 
 <style lang="scss" scoped>
 .components__aboutUs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  // padding: 50px 0;
+  margin-bottom: 100px;
 
   .about-us-message {
     max-width: 960px;
     word-break: normal;
   }
-
-  // @media (max-width: 600px) {
-  //   height: 75vh;
-  // }
-
-  // @media (min-width: 600px) {
-  //   height: 60vh !important;
-  // }
 }
 </style>

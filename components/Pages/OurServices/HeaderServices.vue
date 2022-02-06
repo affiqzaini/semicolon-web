@@ -1,22 +1,37 @@
 <template>
-  <div class="components__headerServices ">
+  <div class="components__headerServices">
     <div class="inner-section pb-12 pt-md-12">
-      <p
-        class="text-h4 text-md-h3 text-uppercase our-service-message primary--text font-weight-black mb-2"
-      >
-        Our Services
-      </p>
-      <div class="page-title">
-        <p class="text-h6 our-service-message mb-12">
-          We help brands and businesses to digitalize their operations, be it
-          internally or for their end customers. We are here to take over the
-          stress of coping up with technology and figuring out what to do next.
-          <br />
-          From system development, digital marketing, IT infrastructure, cloud
-          solutions, we do them all so that you can focus on the primary
-          operations of your business.
-        </p>
-      </div>
+      <v-row justify="center" align="center">
+        <v-col cols="12" md="6">
+          <v-img
+            src="/vector-2.svg"
+            height="auto"
+            max-width="700px"
+            class="mx-auto mb-12"
+            contain
+            alt="aboutUs Image"
+          />
+        </v-col>
+        <v-col cols="12" md="6">
+          <p
+            class="text-h4 text-md-h3 text-uppercase our-service-message primary--text font-weight-black mb-2"
+          >
+            Our Services
+          </p>
+          <div class="page-title">
+            <p class="text-h6 our-service-message mb-12">
+              We help brands and businesses to digitalize their operations, be
+              it internally or for their end customers. We are here to take over
+              the stress of coping up with technology and figuring out what to
+              do next.
+              <br />
+              From system development, digital marketing, IT infrastructure,
+              cloud solutions, we do them all so that you can focus on the
+              primary operations of your business.
+            </p>
+          </div>
+        </v-col>
+      </v-row>
     </div>
 
     <div class="rotate-svg">

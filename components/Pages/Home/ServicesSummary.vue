@@ -1,45 +1,62 @@
 <template>
-  <div class="components__servicesSummary inner-section">
-    <h1 class="text-h5 text-md-h4 font-weight-black text-center">
-      {{ $t("label.digitalTransformationForYourBusiness") }}
-    </h1>
-    <hr class="title-divider" />
-
-    <p class="message-text">
-      {{ $t("message.accelerateBusiness") }}
-    </p>
-
-    <div class="services center-all flex-wrap mt-10">
-      <template v-for="(item, index) in services">
-        <v-card
-          rounded="xl"
-          :key="index"
-          class="mb-3 mx-2 text-center center-all"
-          width="350"
-          height="200"
-          color="#eeeeee"
+  <div class="components__servicesSummary">
+    <div class="primary">
+      <div class="inner-section py-12">
+        <h1
+          class="text-h5 text-md-h4 white--text font-weight-black text-center"
         >
-          <v-card-title>
-            <v-icon left color="accent" large>
-              {{ item.icon }}
-            </v-icon>
-            {{ item.title }}
-          </v-card-title>
+          {{ $t("label.digitalTransformationForYourBusiness") }}
+        </h1>
 
-          <v-card-text>
-            {{ item.description }}
-          </v-card-text>
-        </v-card>
-      </template>
-      <v-btn
-        color="primary"
-        width="200"
-        rounded
-        class="d-flex mx-auto mt-5"
-        :to="localePath({ name: 'services' })"
-        >{{ $t("label.moreServices") }}
-        <v-icon right>mdi-chevron-right</v-icon></v-btn
-      >
+        <hr class="title-divider" />
+
+        <p class="message-text">
+          {{ $t("message.accelerateBusiness") }}
+        </p>
+
+        <div class="services center-all flex-wrap mt-10">
+          <template v-for="(item, index) in services">
+            <v-card
+              rounded="xl"
+              :key="index"
+              class="mb-3 mx-2 text-center center-all"
+              width="350"
+              height="200"
+              color="#eeeeee"
+            >
+              <v-card-title>
+                <v-icon left color="accent" large>
+                  {{ item.icon }}
+                </v-icon>
+                {{ item.title }}
+              </v-card-title>
+
+              <v-card-text>
+                {{ item.description }}
+              </v-card-text>
+            </v-card>
+          </template>
+          <v-btn
+            color="accent"
+            width="200"
+            rounded
+            class="d-flex mx-auto mt-5"
+            :to="localePath({ name: 'services' })"
+            >{{ $t("label.moreServices") }}
+            <v-icon right>mdi-chevron-right</v-icon></v-btn
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="reverse">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#194DA3"
+          fill-opacity="1"
+          d="M0,224L80,192C160,160,320,96,480,101.3C640,107,800,181,960,186.7C1120,192,1280,128,1360,96L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
     </div>
   </div>
 </template>
@@ -82,28 +99,19 @@ export default class ServicesSummary extends Vue {
   @media (min-width: 600px) {
     margin-top: 100px;
   }
-  @media (min-width: 960px) {
-    margin-top: 200px;
-  }
-  @media (min-width: 1265px) {
-    margin-top: 200px;
-  }
-
-  .services {
-    @media #{map-get($display-breakpoints, 'md-and-up')} {
-      margin-bottom: 100px !important;
-    }
-
-    @media #{map-get($display-breakpoints, 'sm-and-down')} {
-      margin-bottom: 50px !important;
-    }
-  }
 
   .message-text {
     text-align: center;
     display: flex;
     margin: 20px auto;
     max-width: 500px;
+    word-wrap: break-word;
+    color: white;
+  }
+
+  .reverse {
+    transform: scaleY(-1);
+    margin-top: -30px;
   }
 }
 </style>

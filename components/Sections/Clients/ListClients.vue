@@ -1,6 +1,6 @@
 <template>
   <div class="components__listClients inner-section">
-    <p class="text-h4 text-md-h3 font-weight-bold white--text text-center">
+    <p class="text-h4 text-md-h3 font-weight-bold primary--text text-center">
       {{ $t("label.ourClients") }}
     </p>
     <v-row class="ma-0" align="center" justify="center">

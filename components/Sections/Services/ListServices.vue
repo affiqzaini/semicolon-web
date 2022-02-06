@@ -23,7 +23,7 @@
             width="100%"
             class="mb-4 white--text"
           >
-            <v-card-title class="mb-0 text-h6 text-sm-h5">
+            <v-card-title class="mb-0 text-h6 accent--text text-sm-h5">
               {{ item.title }}
             </v-card-title>
             <v-card-subtitle>

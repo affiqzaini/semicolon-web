@@ -1,18 +1,23 @@
 <template>
   <div class="components__custExperience inner-section py-12">
-    <p
-      class="text-body-1 text-right font-weight-bold text-uppercase secondary--text mb-0"
-    >
+    <v-img
+      src="/vector-4.svg"
+      height="auto"
+      max-width="700px"
+      class="mx-auto"
+      contain
+      alt="aboutUs Image"
+    />
+    <p class="text-body-1 font-weight-bold text-uppercase secondary--text mb-0">
       {{ $t("label.customerExperience") }}
     </p>
 
-    <p class="text-h3 font-weight-black text-right">
+    <p class="text-h3 font-weight-black">
       {{ $t("label.yourExperienceIsOurPriority") }}
     </p>
 
     <div class="content-text text-body-1">
-      <!-- <p>Your expe</p> -->
-      <p class="text-right">{{ text }}</p>
+      <p>{{ text }}</p>
     </div>
   </div>
 </template>
@@ -36,7 +41,6 @@ export default class CustExperience extends Vue {
     max-width: 700px;
     word-wrap: break-word;
     display: flex;
-    margin-left: auto;
     margin-top: 24px;
   }
 }

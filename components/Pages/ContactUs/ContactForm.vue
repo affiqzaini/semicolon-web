@@ -6,7 +6,7 @@
 
     <div class="contact-form mx-auto">
       <p
-        class="text-center text-subtitle-2"
+        class="text-center accent--text text-subtitle-2"
         style="max-width: 500px; word-break:break"
       >
         For any enquiries regarding our services, please fill out our contact

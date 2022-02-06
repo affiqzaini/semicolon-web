@@ -9,6 +9,7 @@
 import { Vue, Component } from "nuxt-property-decorator";
 import ContactForm from "~/components/Pages/ContactUs/ContactForm.vue";
 import SocialShare from "~/components/Pages/ContactUs/SocialShare.vue";
+import { PageView } from "vue-gtag";
 
 @Component({
   head() {
@@ -21,5 +22,9 @@ import SocialShare from "~/components/Pages/ContactUs/SocialShare.vue";
     SocialShare
   }
 })
-export default class PageContactUs extends Vue {}
+export default class PageContactUs extends Vue {
+  mounted() {
+    this.$gtag.pageview(this.$route as PageView);
+  }
+}
 </script>
